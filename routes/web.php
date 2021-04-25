@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminProductController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('admin/products', AdminProductController::class);
+Route::resource('admin/products', AdminProductController::class)->middleware(['auth']);
+
+require __DIR__.'/auth.php';

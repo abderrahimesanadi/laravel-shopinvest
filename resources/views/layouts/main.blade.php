@@ -14,28 +14,33 @@
 <!--  nav -->
 
 <header id="header">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default bg-light"">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">LOGO</a>
+      <div class="navbar-header" style="width:100%">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3"">
+            <a class="navbar-brand" href="#">LOGO</a>
+          </div>
+          <div class="col-sm-3 >
+            <ul class="nav navbar-nav navbar-right">
+              @if(Illuminate\Support\Facades\Auth::check())
+              <li style="float:right"> Bienvenue {{ Auth::user()->name}} 
+              <form method="POST" action="{{ route('logout') }}">
+                   @csrf
+                  <input type="submit"  value="logout" class="btn btn-outline-secondary"/>                     
+               </form>
+              </li> 
+              @else
+              <li class="dropdown" id="cart">
+                <a href="#"></a>
+              </li>
+              @endif
+            </ul>
+          </div>
+          </div>
+      
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-
-          <li class="dropdown" id="cart">
-            <a href="#">Se d&eacute;connecter</a>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container-fluid -->
   </nav>
