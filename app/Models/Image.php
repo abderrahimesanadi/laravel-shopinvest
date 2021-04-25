@@ -11,6 +11,15 @@ class Image extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'file_name',
+    ];
+    
     public function product(){
      return $this->belongsTo(Product::class,'product_id');
     }
