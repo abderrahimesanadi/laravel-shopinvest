@@ -14,7 +14,7 @@
           <h3 class="panel-title"><i class="fa fa-pencil"></i> Détail du produit</h3>
         </div>
         <div class="col-sm-6">
-          <button class="btn btn-outline-secondary" onclick="history.back();">Retour</button>
+          <button class="btn btn-default" onclick="history.back();">Retour</button>
         </div>
       </div>
     </div>
@@ -42,6 +42,7 @@
         <option value="{{ $mark->id }}">{{ $mark->name }}</option>
          @endforeach
          </select>
+         <button type="button" class="btn btn-primary form-control" id="add_mark" data-toggle="modal" data-target="#markModal" data-whatever="@mdo">Ajouter une marque</button>
         @error('mark')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror        
@@ -90,12 +91,41 @@
     </div>
   </div>
   
-  <div class='row submit' style="margin-top:20px">
-    <div class='col-md '>
-    <input class= "btn btn-primary" type="submit" value="Enregistrer"/> 
-  </div>
+  <div class='row submit' >
+    <div class='col-sm-6 col-sm-offset-3'>
+      <button class="btn btn-default" onclick="history.back();">Cancel</button>
+     <input class= "btn btn-primary" type="submit" value="Enregistrer"/> 
+    </div>
   </div>
 </form>
 </div>
-
+<div class="modal fade" id="markModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajout d'une nouvelle marque</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ route('mark.save')}}">
+          <div class="form-group">
+            <label for="mark_name" class="col-form-label">Nom de la Marque:</label>
+            <input type="text" class="form-control" id="mark_name" name="mark_name" required>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          </div>
+          <div class='row submit' style="margin-top:20px">
+            <div class='col-sm-6 col-sm-offset-3'>
+            <input class= "btn btn-primary" type="submit" value="Enregistrer"/> 
+          </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

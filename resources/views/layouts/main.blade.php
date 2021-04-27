@@ -10,11 +10,11 @@
       <script src="/js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
   
       <!-- link -->
-      <link href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+      <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
       <link href="/css/app.css" rel="stylesheet" media="screen" />
       <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <link href="/js/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   </head>
 <body>
 <!--  nav -->

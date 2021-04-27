@@ -125,4 +125,17 @@ class AdminProductController extends Controller
         Product::where('id',$id)->delete();
         return redirect()->route('products.index');
     }
+
+    public function saveMark(Request $request){
+        $mark = new Mark();
+        $this->validate($request, [
+            'mark_name' => 'required',
+         ]);
+        //  Store data in database
+        $mark->name = $request->input('mark_name');
+        $mark->save();
+        return redirect()->back();
+
+
+    }
 }

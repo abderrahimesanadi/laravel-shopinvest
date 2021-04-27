@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 // admin product
 Route::resource('admin/products', AdminProductController::class)->middleware(['auth']);
+Route::post('/mark/save', [AdminProductController::class, 'saveMark'])->middleware(['auth'])->name('mark.save');
 
 // front + cart
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');

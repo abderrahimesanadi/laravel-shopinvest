@@ -187945,8 +187945,14 @@ select {
 
 /* Base
 ===================*/
-.form-group{
+.form-control{
 margin-bottom:20px!important;
+}
+.breadcrumb::before{ 
+  $breadcrumb-divider: quote(">");
+}
+.breadcrumb::content{ 
+  $breadcrumb-divider: quote(">");
 }
 a{color: #0084d0;}
 a:focus, a:hover {color: #fa3b3c;text-decoration: none;}
