@@ -78,6 +78,7 @@
   </div>
   <div class="form-group">
       <label class="col-sm-2 control-label" for="input-name">Images du produit</label>
+      <span> Vous pouvez télécharger plusieurs images en appuyant sur Ctrl</span>
       <div class="col-sm-10">
         <input name="images[]" id="images" type="file" placeholder="images"  class="form-control @error('images') is-invalid @enderror" multiple/>
         @error('images')

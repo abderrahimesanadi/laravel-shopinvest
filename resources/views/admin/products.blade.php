@@ -32,13 +32,13 @@
       <td>{{ $product->price }}</td>
       <td>{{ $product->price_promo }}</td>
       <td>{{ $product->mark->name }}</td>
-      <td><a target="_blank" href="{{ route('product.show' , $product->id)}}" class="btn btn-outline-info">Visualiser<a/></td>
-      <td><a href="{{ route('products.edit' , $product->id)}}" class="btn btn-outline-secondary">Modifier<a/></td>
+      <td><a target="_blank" href="{{ route('product.show' , $product->id)}}" class="btn btn-info">Visualiser<a/></td>
+      <td><a href="{{ route('products.edit' , $product->id)}}" class="btn btn-warning">Modifier<a/></td>
       <td>
       <form action="{{ route('products.destroy' , $product->id)}}" method="POST">
       <input name="_method" type="hidden" value="DELETE">
        {{ csrf_field() }}
-       <input class= "btn btn-outline-danger" type="submit" value="Supprimer"/> 
+       <input class= "btn btn-danger" type="submit" value="Supprimer"/> 
       </form>
      </td>
 </tr>

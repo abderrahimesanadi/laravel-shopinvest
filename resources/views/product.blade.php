@@ -21,9 +21,6 @@
 						<img src="/images/{{ $product->images[0]->file_name ?? ''}}" alt="{{ $product->name }}" id="image-thumb" class="img-responsive">
 					</a>
 					<div id="image-additionals">
-						<a href="javascript:;" class="image-adl-a active">
-							<img src="/images/{{ $product->images[0]->file_name ?? ''  }}" alt="{{ $product->name }}" class="image-adl img-responsive">
-						</a>
 					@foreach ($product->images as $image)
 						<a href="javascript:;" class="image-adl-a">
 							<img src="/images/{{ $image->file_name }}" alt="{{ $product->name }}" class="image-adl img-responsive">
@@ -43,7 +40,7 @@
 							Marque: <a href="#">{{ $product->mark->name }}</a>
 						</div>
 						<div class="col-sm-6 text-right">
-							@if ((float)$product->price > 0)
+							@if ((float)$product->price_promo > 0)
 								<span class="price has-special">{{ $product->price }}</span>
 								<span class="special">{{ $product->price_promo }}</span>
 							@else 

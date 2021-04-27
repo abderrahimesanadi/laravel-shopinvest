@@ -99,12 +99,12 @@ public function loadCart(Request $request) {
         foreach ($cart as &$crt) {
             $totalAll+=$crt["total"];
             $quantityAll+=$crt["quantity"];
-            $crt["price"] = number_format($crt["price"],2,",","")."&euro;";
-            $crt["total"] = number_format($crt["total"],2,",","")."&euro;";
+            $crt["price"] = number_format($crt["price"],2,",","")."€";
+            $crt["total"] = number_format($crt["total"],2,",","")."€";
         }
     }
     $data["cart"] = $cart;
-    $data["totalAll"] = number_format($totalAll,2,",","")."&euro;";
+    $data["totalAll"] = number_format($totalAll,2,",","")."€";
     $data["quantityAll"] = $quantityAll;
     return view('cart', $data);
 }

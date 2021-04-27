@@ -66,11 +66,13 @@ class AdminProductController extends Controller
         // upload images
         $product->refresh();
         if($request->hasFile('images')){
+            $i=0;
             foreach($request->file('images') as $image){
-                $imageName = time().'.'.$image->extension(); 
+                $imageName = $i.time().'.'.$image->extension(); 
                 $image->move(public_path('images'), $imageName);
                 $img = new Image(['file_name' => $imageName]);
-                $product->images()->save($img); 
+                $product->images()->save($img);
+                $i++; 
             }
         }
     }

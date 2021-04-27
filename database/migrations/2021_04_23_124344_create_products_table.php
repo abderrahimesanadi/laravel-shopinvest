@@ -20,7 +20,9 @@ class CreateProductsTable extends Migration
             $table->float('price_promo')->nullable(true);
             $table->text('description');
             $table->unsignedBigInteger('mark_id'); 
-            $table->foreign('mark_id')->references('id')->on('marks');
+            $table->foreign('mark_id')->references('id')->on('marks')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');;
             $table->timestamps();
         });
     }
