@@ -55,6 +55,14 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="input-name">Prix en promotion</label>
+      <div class="col-sm-10">
+          <input  id="price_promo" name="price_promo" value="{{ $product->price_promo ?? '' }}" placeholder="0.0 "  class="form-control @error('price_promo') is-invalid @enderror" />
+          @error('price_promo')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+      </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label" for="input-name">Description</label>

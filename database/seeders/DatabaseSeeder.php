@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'name' => Str::random(10),
             'price' => '50',
+            'price_promo' => '30',
             'description' => Str::random(100),
             'mark_id' => 1
         ]);

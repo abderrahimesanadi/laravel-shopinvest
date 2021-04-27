@@ -59,6 +59,7 @@ class AdminProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
+        $product->price_promo = $request->input('price_promo');
         $product->mark_id = $request->input('mark');
          $product->save();
 

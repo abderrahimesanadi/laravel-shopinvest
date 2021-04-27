@@ -1,8 +1,7 @@
 @extends('layouts/main')
 
 @section('content')
-<h3> Administration des produits</h3>
- <a class="btn btn-outline-primary" href="{{ route('products.create')}}"  role="button">Ajouter un produit</a>
+ <a class="btn btn-primary" href="{{ route('products.create')}}"  role="button">Ajouter un produit</a>
 <br/>
 <br/>
 
@@ -12,6 +11,7 @@
       <th scope="col">Image</th>
       <th scope="col">Nom</th>
       <th scope="col">prix</th>
+      <th scope="col">prix en promotion</th>
       <th scope="col">marque</th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -30,8 +30,9 @@
       </td>
       <td scope="row">{{ $product->name }}</td>
       <td>{{ $product->price }}</td>
+      <td>{{ $product->price_promo }}</td>
       <td>{{ $product->mark->name }}</td>
-      <td><a href="{{ route('products.show' , $product->id)}}" class="btn btn-outline-info">Visualiser<a/></td>
+      <td><a target="_blank" href="{{ route('product.show' , $product->id)}}" class="btn btn-outline-info">Visualiser<a/></td>
       <td><a href="{{ route('products.edit' , $product->id)}}" class="btn btn-outline-secondary">Modifier<a/></td>
       <td>
       <form action="{{ route('products.destroy' , $product->id)}}" method="POST">

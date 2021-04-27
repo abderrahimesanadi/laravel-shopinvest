@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// admin product
 Route::resource('admin/products', AdminProductController::class)->middleware(['auth']);
+
+// front + cart
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('cart/loadCart', [ProductController::class, 'loadCart'])->name('load.cart');
+Route::post('product/addCart', [ProductController::class, 'addCart'])->name('add.cart');
+Route::post('product/removeCart', [ProductController::class, 'removeCart'])->name('remove.cart');
+
 
 require __DIR__.'/auth.php';

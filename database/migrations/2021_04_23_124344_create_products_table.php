@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->float('price');
+            $table->float('price_promo')->nullable(true);
             $table->text('description');
             $table->unsignedBigInteger('mark_id'); 
             $table->foreign('mark_id')->references('id')->on('marks');
